@@ -43,10 +43,12 @@ File.open(filename,'a') do |f|
           f.write "\n"
           email_count += 1
         else
+          puts '-------------------------------------------------------------------'
           puts "#{email_count} emails generated and saved in file #{filename}. Bye."
           time_end = Time.now
           elapsed_time = time_end - time_start
           puts "Your request took: #{elapsed_time} seconds"
+          puts '-------------------------------------------------------------------'
           exit
         end
       end
