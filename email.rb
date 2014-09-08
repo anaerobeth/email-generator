@@ -24,7 +24,9 @@ else
 end
 
 
-stamp = Time.new.strftime('%j%M%S')
+time_start = Time.new
+stamp = time_start.strftime('%j%M%S')
+
 email_count = 0
 filename = "emails#{stamp}.txt"
 File.open(filename,'a') do |f|
@@ -41,7 +43,10 @@ File.open(filename,'a') do |f|
           f.write "\n"
           email_count += 1
         else
-          puts "#{email_count} emails generated and saved as file #{filename}. Bye."
+          puts "#{email_count} emails generated and saved in file #{filename}. Bye."
+          time_end = Time.now
+          elapsed_time = time_end - time_start
+          puts "Your request took: #{elapsed_time} seconds"
           exit
         end
       end
